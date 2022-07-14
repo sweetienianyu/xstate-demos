@@ -56,12 +56,10 @@ function isOperator(text) {
 const { state, send: machineSend } = useMachine(calcMachine, {});
 
 function send(event, payload) {
-  console.log(event, payload);
   machineSend(event, payload);
 }
 
 function handleButtonClick(item) {
-  console.log("handleButtonClick", item);
   if (Number.isInteger(+item)) {
     send("NUMBER", { key: +item });
   } else if (isOperator(item)) {
